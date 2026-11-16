@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secret Puzzle</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <section class="stage">
+      <!-- COVER STAGE (/9RN2QpfTTvM) -->
+      <section id="musicVideo" class="panel hidden" aria-labelledby="musicVideoTitle">
+        <h3 id="musicVideoTitle">This is my favorite J-pop MV of the year. <br> Abyss in the world by Eve.</h3>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/8T_1lis5pFo?cc_load_policy=1&loop=1&modestbranding=1&playsinline=1"
+            title="Abyss in the World by Eve"
+            allowfullscreen></iframe>
+        </div>
+        <p><a href="https://youtu.be/8T_1lis5pFo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></p>
+      </section>
+
+      <button id="toggleBtn" type="button" aria-expanded="false">Open</button>
+      <div id="videoHintArrow" class="hidden" aria-hidden="true">↓</div>
+      <p id="hintNote" class="hidden"><b>there is a secret button hidden in the front of the card leading to a secret message, find it!</b></p>
+
+      <div id="card" class="card">
+        <!-- ===== INSIDE THE CARD (PUZZLE SPOILERS FROM HERE ON) ===== -->
+        <div id="inside" class="inside" inert>
+
+          <section id="passwordGate" class="panel hidden" aria-labelledby="passwordTitle">
+            <h2 id="passwordTitle">Password Is Required!</h2>
+            <h5 class="small">(enter their first names, all lowercase, and no spaces)</h5>
+            <p class="psswrdHnt"><b>Riddles w First Names of students in BSIT 2C;</b>
+				      <br><b>-</b> someone who bares the name of a <b>bird.</b>
+				      <br><b>-</b> someone who holds the name of a <b>continent.</b>
+				      <br><b>-</b> someone who has the same <b> name as a zodiac sign.</b>
+			      </p>
+            <b><label for="passwordInput">Password</label></b><br>
+            <input id="passwordInput" type="text" placeholder="ravenasiamark">
+            <button id="passwordBtn" type="button">Continue</button>
+            <div id="passwordMessage" class="msg" role="status" aria-live="polite"></div>
+            <p>
+              you have to refresh to go back to the original state.
+            </p>
+          </section>
+
+          <!-- The puzzles appear after the password is accepted. -->
+          <div id="puzzle" class="hidden">
+            <div class="grid">
+
+              <!-- PUZZLE 1 - Conway's Game of Life answer: 44. but its actually 42 according to science(/4o1oJ66byyA) -->
+              <div id="p1" class="panel">
+                <h2>Puzzle 1 · Simulation</h2>
+                <p>
+                  <b>To complete this puzzle you have to simulate the following and add them all:</b><br>
+                  <br>
+                  <b>1.</b>
+                  <br>function multiply(a, b) {<br>
+                  return a * b;<br>
+                  }<br>
+                  console.log(multiply(4, 5));<br>
+                  <br>
+                  <b>2.</b><br>
+                  let number = 20;<br>
+                  number = 14;<br>
+                  console.log(number);<br>
+                  <br>
+                  <b>3.</b>
+                  <br>const square = number => number;<br>
+                  console.log(square(10));<br> <!-- mislead the user to thinking it is squared -->
+                  <br>
+                </p>
+                <input id="answer" type="text" placeholder="4">
+                <button id="checkBtn">Check</button>
+                <div id="msg1" class="msg"></div>
+              </div>
+
+              <!-- PUZZLE 2 - Meme puzzle (btw all the passwords are 4) -->
+              <div id="p2" class="panel hidden">
+                <h2>Puzzle 2 · The Passcode</h2>
+                <p>
+					        Solve the riddles and combine them. (All lowercased)<!-- misleading direction -->
+                </p>
+                  <p>
+                    <i>
+                      "and although angelo Wanted a simplE but easy puzzle <br>
+                      he cant but Worry for the uSers to complain tHat <br>
+                      is was too easy, And so he hid the puzzle pieces <br>
+                      in plain sight for the useRs to see and hoPing that <br>
+                      EverY user can somEhow solve and find the paSscode."
+                      <br><b>- Angelo</b>
+                    </i>
+                  </p>
+                <input id="num2" type="text" placeholder="4">
+                <button id="checkPasscodeBtn">Continue</button>
+                <div id="passcodeMessage" class="msg"></div>
+              </div>
+
+              <div id="p3" class="panel hidden puzzle3">
+                <h2 id="riddleTitle">Puzzle 3 · The Last Puzzle</h2>
+                <p id="riddlePrompt">
+                  <i>Why is 6 afraid of 7?</i><br>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA_qyDtXkzXTnTrfPKqBqPpjjpYaaD5HDilIQn2BoC1w&s=10" alt="67">
+                </p>
+                <div id="decoyContent" class="hidden">
+                </div>
+                <input id="riddleAnswer" type="text" placeholder="Your answer">
+                <button id="checkRiddleBtn">Check</button>
+                <div id="riddleMessage" class="msg" role="status" aria-live="polite"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- THE HIDDEN MESSAGE (shown after unlocking, hoping no one gets spoilers) -->
+          <div id="message" class="hidden">
+            <h2>Dear Ma’am Roan,</h2>
+            <p><b>Thank you</b> for teaching us this semester. This was undeniably one of the best semesters 
+              I have gotten in NEUST, Even when I was a first-year learning nursing student. Within our 
+              time together, I have no doubt you have taught us and built our foundation in the knowledge 
+              of what we will be using in our / my carrier.
+            </p>
+            <p>
+              <i>With gratitude - <b>Santiago, A</b></i>
+            </p>
+            <a href="https://itecrdaljss.as9459372.workers.dev/">want a harder challenge? try this!</a>
+          <div class="video-frame">
+              <iframe
+                id="ytplayer"
+                data-src="https://www.youtube.com/embed/2rhLKnWCo6Y?autoplay=1&amp;si=oDPCFaEx5CeqM6bo"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+          </div>
+          </div>
+        </div>
+      
+        <!-- ===== THE COVER (the first thing i should see) ===== -->
+        <div id="cover" class="cover">
+          <i>
+            <h2>· My E-Card ·</h2>
+            <p>
+              <b>·Angelo Lloyds Joseph S. Santiago·
+                <br>· ITWS02 ·
+              </b>
+            </p>
+          </i>
+          <div id="coverArt" class="board"></div>
+        </div>
+        <button id="secretTrigger" type="button" aria-label="Reveal puzzles" title="A hidden button"></button>
+        <span class="cover-screw top-left" aria-hidden="true"></span>
+        <span class="cover-screw bottom-left" aria-hidden="true"></span>
+        <span class="cover-screw bottom-right" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+<script src="script.js" defer></script>
+</body>
+</html>
